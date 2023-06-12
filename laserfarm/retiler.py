@@ -154,7 +154,8 @@ def _run_PDAL_splitter(filename, tiled_temp_folder, tiling_mins, tiling_maxs,
             {
                 "type": "writers.las",
                 "filename": outfilepath.as_posix(),
-                "forward": ["scale_x", "scale_y", "scale_z"],
+                "forward": "all", # added to make sure Amplitude and other attributes pass but actually might only need the next line
+                "extra_dims": "all", # added to make sure Amplitude and other attributes pass
                 "offset_x": "auto",
                 "offset_y": "auto",
                 "offset_z": "auto"
